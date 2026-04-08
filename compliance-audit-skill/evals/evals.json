@@ -1,0 +1,73 @@
+{
+  "skill_name": "compliance-audit",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Hey, I just inherited this patient records API from a contractor and we need to make sure it's HIPAA compliant before we go live. Can you audit the codebase at /tmp/compliance-test-apps/healthcare-api and tell me what we need to fix?",
+      "expected_output": "A structured compliance report identifying critical HIPAA issues: unencrypted PHI storage (SSN, medical records in plaintext MongoDB), hardcoded JWT secret, no audit logging, PHI sent via unencrypted email, no RBAC, overly broad data queries, error handler leaking stack traces.",
+      "files": [
+        "/tmp/compliance-test-apps/healthcare-api/package.json",
+        "/tmp/compliance-test-apps/healthcare-api/src/index.js",
+        "/tmp/compliance-test-apps/healthcare-api/src/models/Patient.js",
+        "/tmp/compliance-test-apps/healthcare-api/src/routes/patients.js"
+      ],
+      "assertions": [
+        {"id": "hipaa-ssn-plaintext", "text": "Identifies that SSN is stored in plaintext without encryption"},
+        {"id": "hipaa-hardcoded-secret", "text": "Identifies the hardcoded JWT secret"},
+        {"id": "hipaa-no-audit-log", "text": "Identifies the lack of audit logging for PHI access"},
+        {"id": "hipaa-email-phi", "text": "Identifies that PHI is sent via email in plaintext"},
+        {"id": "hipaa-no-rbac", "text": "Identifies missing role-based access control"},
+        {"id": "hipaa-broad-queries", "text": "Identifies overly broad queries returning all fields"},
+        {"id": "hipaa-section-refs", "text": "References specific HIPAA regulatory sections"},
+        {"id": "hipaa-severity-org", "text": "Report organized by severity levels"},
+        {"id": "hipaa-actionable-fixes", "text": "Includes specific actionable fix instructions"},
+        {"id": "hipaa-file-refs", "text": "References specific file paths"}
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We're an e-commerce platform selling to customers in both the EU and the US. I need to check if our Next.js app is GDPR compliant — we've had a few customer complaints about data privacy. The code is at /tmp/compliance-test-apps/ecommerce-app. Please audit it.",
+      "expected_output": "A structured GDPR compliance report identifying: tracking scripts loaded without consent, pre-ticked disabled checkboxes, soft-delete not satisfying right to erasure, marketing opt-in defaults, unnecessary data collection, missing data export, third-party DPAs needed.",
+      "files": [
+        "/tmp/compliance-test-apps/ecommerce-app/package.json",
+        "/tmp/compliance-test-apps/ecommerce-app/prisma/schema.prisma",
+        "/tmp/compliance-test-apps/ecommerce-app/src/app/layout.tsx",
+        "/tmp/compliance-test-apps/ecommerce-app/src/app/api/users/route.ts",
+        "/tmp/compliance-test-apps/ecommerce-app/src/components/SignupForm.tsx"
+      ],
+      "assertions": [
+        {"id": "gdpr-tracking-no-consent", "text": "Identifies tracking scripts loaded without cookie consent"},
+        {"id": "gdpr-preticked-checkboxes", "text": "Identifies pre-ticked disabled consent checkboxes"},
+        {"id": "gdpr-soft-delete", "text": "Identifies soft-delete not satisfying right to erasure"},
+        {"id": "gdpr-default-optin", "text": "Identifies marketing opt-in defaulting to true"},
+        {"id": "gdpr-unnecessary-data", "text": "Identifies unnecessary data collection (date of birth)"},
+        {"id": "gdpr-no-export", "text": "Identifies missing data export/portability"},
+        {"id": "gdpr-article-refs", "text": "References specific GDPR articles"},
+        {"id": "gdpr-third-party-dpas", "text": "Identifies third-party processors needing DPAs"}
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I'm building a telehealth platform and we need to be compliant with both HIPAA and GDPR since we serve patients in the US and EU. Can you do a full compliance audit of /tmp/compliance-test-apps/saas-app? We're about to start our SOC 2 process too so any findings would be really helpful.",
+      "expected_output": "A dual-regulation compliance report covering both HIPAA and GDPR with separate sections, identifying SSN plaintext, PHI via SMS, hardcoded secret, error handler leaking PHI, unauthenticated WebSockets, unused audit log table, and a prioritized to-do list.",
+      "files": [
+        "/tmp/compliance-test-apps/saas-app/package.json",
+        "/tmp/compliance-test-apps/saas-app/src/index.js",
+        "/tmp/compliance-test-apps/saas-app/src/db/schema.sql",
+        "/tmp/compliance-test-apps/saas-app/src/routes/appointments.js",
+        "/tmp/compliance-test-apps/saas-app/src/routes/messages.js",
+        "/tmp/compliance-test-apps/saas-app/src/middleware/auth.js"
+      ],
+      "assertions": [
+        {"id": "dual-ssn-plaintext", "text": "Identifies SSN stored in plaintext"},
+        {"id": "dual-sms-phi", "text": "Identifies PHI sent via SMS through Twilio"},
+        {"id": "dual-hardcoded-secret", "text": "Identifies hardcoded JWT secret"},
+        {"id": "dual-error-leak", "text": "Identifies error handler leaking stack traces and request body"},
+        {"id": "dual-websocket-noauth", "text": "Identifies unauthenticated WebSocket connections"},
+        {"id": "dual-audit-log-empty", "text": "Identifies audit_log table exists but is never written to"},
+        {"id": "dual-both-regulations", "text": "Report covers both GDPR and HIPAA with separate sections"},
+        {"id": "dual-todo-list", "text": "Includes a summary to-do list"}
+      ]
+    }
+  ]
+}
