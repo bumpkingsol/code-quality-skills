@@ -6,6 +6,7 @@ A collection of Claude Code skills for code quality and audits — diagnosing is
 
 | Skill | Description |
 |-------|-------------|
+| `slop-remover-skill` | 8-agent parallel deep-clean — deduplication, dead code, weak types, circular deps, error handling, legacy code, AI slop |
 | `production-gap-auditor-skill` | Production gap auditing against world-class best practices |
 | `compliance-audit-skill` | GDPR and HIPAA compliance audit with structured reports |
 | `cleanup-skill` | Automated code cleanup |
