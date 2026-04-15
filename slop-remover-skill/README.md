@@ -131,13 +131,20 @@ Falls back to grep-based manual analysis when specialized tools aren't available
 
 ## Installation
 
-### Quick install
+### One-liner (npx)
 
-Clone this repo and copy the skill into your Claude Code skills directory:
+```bash
+npx degit bumpkingsol/code-quality-skills/slop-remover-skill ~/.claude/skills/slop-remover
+```
+
+This pulls just the skill directory from GitHub into your Claude Code skills folder — no cloning the full repo.
+
+### Alternative: git clone
 
 ```bash
 git clone https://github.com/bumpkingsol/code-quality-skills.git
 cp -r code-quality-skills/slop-remover-skill ~/.claude/skills/slop-remover
+rm -rf code-quality-skills
 ```
 
 ### Manual install
