@@ -14,34 +14,18 @@ A collection of Claude Code skills for code quality and audits — diagnosing is
 
 ## Installation
 
-Install any skill with a single command using `npx degit`:
+Install any skill directly via the Claude Code CLI using the `.skill` file:
 
 ```bash
-# Install slop-remover
-npx degit bumpkingsol/code-quality-skills/slop-remover-skill ~/.claude/skills/slop-remover
-
-# Install production-gap-auditor
-npx degit bumpkingsol/code-quality-skills/production-gap-auditor-skill ~/.claude/skills/production-gap-auditor
-
-# Install compliance-audit
-npx degit bumpkingsol/code-quality-skills/compliance-audit-skill ~/.claude/skills/compliance-audit
-
-# Install cleanup (dead-code-removal)
-npx degit bumpkingsol/code-quality-skills/cleanup-skill ~/.claude/skills/dead-code-removal
-
-# Install whats-wrong
-npx degit bumpkingsol/code-quality-skills/whats-wrong-skills ~/.claude/skills/whats-wrong
+claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/slop-remover-skill/slop-remover.skill
 ```
 
-Or clone the full collection:
+Or clone the repo and install locally:
 
 ```bash
 git clone https://github.com/bumpkingsol/code-quality-skills.git
-cp -r code-quality-skills/slop-remover-skill ~/.claude/skills/slop-remover
-cp -r code-quality-skills/production-gap-auditor-skill ~/.claude/skills/production-gap-auditor
-# ... etc
+cd code-quality-skills
+claude install-skill slop-remover-skill/slop-remover.skill
 ```
-
-Verify installation by starting a new Claude Code session and running `/skills`.
 
 > Each subdirectory is a standalone skill. Refer to each skill's own README for details.

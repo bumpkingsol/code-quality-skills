@@ -131,41 +131,21 @@ Falls back to grep-based manual analysis when specialized tools aren't available
 
 ## Installation
 
-### One-liner (npx)
+### Claude Code CLI
 
 ```bash
-npx degit bumpkingsol/code-quality-skills/slop-remover-skill ~/.claude/skills/slop-remover
+claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/slop-remover-skill/slop-remover.skill
 ```
 
-This pulls just the skill directory from GitHub into your Claude Code skills folder — no cloning the full repo.
-
-### Alternative: git clone
+Or if you've cloned the repo:
 
 ```bash
-git clone https://github.com/bumpkingsol/code-quality-skills.git
-cp -r code-quality-skills/slop-remover-skill ~/.claude/skills/slop-remover
-rm -rf code-quality-skills
-```
-
-### Manual install
-
-Place `SKILL.md` and the `references/` directory in `~/.claude/skills/slop-remover/`:
-
-```
-~/.claude/skills/slop-remover/
-  SKILL.md
-  references/
-    agent-prompts.md
+claude install-skill slop-remover-skill/slop-remover.skill
 ```
 
 ### Verify installation
 
-Start a new Claude Code session and check:
-```
-/skills
-```
-
-You should see `slop-remover` in the list.
+Start a new Claude Code session and run `/skills` — you should see `slop-remover` in the list.
 
 ## Usage
 
