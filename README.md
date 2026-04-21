@@ -11,6 +11,7 @@ A collection of Claude Code skills for code quality and audits — diagnosing is
 | `compliance-audit-skill` | GDPR and HIPAA compliance audit with structured reports |
 | `cleanup-skill` | Automated code cleanup |
 | `whats-wrong-skills` | Deep-dive diagnosis of application subsystems |
+| `bug-hunter-skill` | Drives a running app as a real user to find production bugs — maps flows, hunts adversarially, reports with screenshots |
 
 ## Installation
 
