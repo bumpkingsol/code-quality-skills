@@ -65,19 +65,19 @@ function usage() {
   console.log(`code-quality-skills — cross-agent skill installer
 
 Usage:
-  npx code-quality-skills install <skill> [--agent <agent>] [--scope <user|project>]
-  npx code-quality-skills install-all     [--agent <agent>] [--scope <user|project>]
-  npx code-quality-skills list
-  npx code-quality-skills agents
+  npx github:${REPO} install <skill> [--agent <agent>] [--scope <user|project>]
+  npx github:${REPO} install-all     [--agent <agent>] [--scope <user|project>]
+  npx github:${REPO} list
+  npx github:${REPO} agents
 
 Skills: ${skills}
 Agents: ${agents}   (default: claude)
-Scopes: user, project                  (default: user)
+Scopes: user, project                                (default: user)
 
 Examples:
-  npx code-quality-skills install bug-hunter
-  npx code-quality-skills install slop-remover --agent gemini
-  npx code-quality-skills install-all --agent cursor --scope project
+  npx github:${REPO} install bug-hunter
+  npx github:${REPO} install slop-remover --agent gemini
+  npx github:${REPO} install-all --agent cursor --scope project
 `);
 }
 
