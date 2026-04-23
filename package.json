@@ -1,0 +1,20 @@
+{
+  "name": "code-quality-skills",
+  "version": "0.1.0",
+  "description": "Cross-agent installer for code-quality skills (Claude Code, Gemini CLI, Codex, Cursor, Copilot CLI).",
+  "bin": {
+    "code-quality-skills": "bin/cli.js"
+  },
+  "files": [
+    "bin",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bumpkingsol/code-quality-skills.git"
+  },
+  "license": "MIT"
+}

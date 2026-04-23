@@ -16,7 +16,34 @@ A collection of Claude Code skills for code quality and audits — diagnosing is
 
 ## Installation
 
-Install any skill directly via the Claude Code CLI using the `.skill` file:
+These skills are plain `SKILL.md` files with YAML frontmatter — they work with any agent framework that supports skills (Claude Code, Gemini CLI, Codex, Cursor, Copilot CLI, etc.).
+
+### Install via npx (any agent)
+
+```bash
+# List available skills
+npx github:bumpkingsol/code-quality-skills list
+
+# Install one skill (defaults to Claude, user scope)
+npx github:bumpkingsol/code-quality-skills install bug-hunter
+
+# Install to a different agent
+npx github:bumpkingsol/code-quality-skills install slop-remover --agent gemini
+npx github:bumpkingsol/code-quality-skills install production-gap-auditor --agent cursor
+
+# Install to project scope instead of user scope
+npx github:bumpkingsol/code-quality-skills install complexity-audit --scope project
+
+# Install everything
+npx github:bumpkingsol/code-quality-skills install-all --agent claude
+```
+
+**Supported agents:** `claude`, `gemini`, `codex`, `cursor`, `copilot`
+**Scopes:** `user` (default, global) or `project` (local `.{agent}/skills/`)
+
+### Install via Claude Code CLI
+
+For Claude Code specifically, you can also use the bundled `.skill` packages:
 
 ```bash
 claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/slop-remover-skill/slop-remover.skill
@@ -24,14 +51,16 @@ claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-
 claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/complexity-audit-skill/complexity-audit.skill
 ```
 
-Or clone the repo and install locally:
+### Manual install
 
-```bash
-git clone https://github.com/bumpkingsol/code-quality-skills.git
-cd code-quality-skills
-claude install-skill slop-remover-skill/slop-remover.skill
-claude install-skill bug-hunter-skill/bug-hunter.skill
-claude install-skill complexity-audit-skill/complexity-audit.skill
-```
+Each subdirectory is a standalone skill. Copy the skill's folder into your agent's skills directory:
 
-> Each subdirectory is a standalone skill. Refer to each skill's own README for details.
+| Agent | User scope | Project scope |
+|-------|------------|---------------|
+| Claude Code | `~/.claude/skills/<name>/` | `.claude/skills/<name>/` |
+| Gemini CLI | `~/.gemini/skills/<name>/` | `.gemini/skills/<name>/` |
+| Codex | `~/.codex/skills/<name>/` | `.codex/skills/<name>/` |
+| Cursor | `~/.cursor/skills/<name>/` | `.cursor/skills/<name>/` |
+| Copilot CLI | `~/.copilot/skills/<name>/` | `.copilot/skills/<name>/` |
+
+> Refer to each skill's own README for usage details.
