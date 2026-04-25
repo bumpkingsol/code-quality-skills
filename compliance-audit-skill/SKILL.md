@@ -1,17 +1,11 @@
 ---
 name: compliance-audit
 description: >
-  Audit an application's codebase for GDPR and HIPAA compliance issues, producing
-  a structured report with findings organized by regulation and severity. Use this
-  skill whenever the user mentions "GDPR," "HIPAA," "compliance audit," "privacy
-  audit," "data protection audit," "PHI," "PII," "personal data compliance,"
-  "health data compliance," "regulatory compliance," "privacy review," "is my app
-  compliant," "check for compliance issues," "data privacy," "right to erasure,"
-  "consent management," "DPIA," "BAA," "protected health information," or any
-  variation of wanting to know whether their application meets privacy regulations.
-  Even if the user just says "audit my app for privacy" or "are we GDPR compliant" —
-  use this skill. Also trigger when the user is working on authentication, data
-  storage, or user data handling and asks whether it meets regulatory requirements.
+  Audits an application's codebase for GDPR and HIPAA compliance issues, producing a
+  structured report organized by regulation and severity. Use when the user mentions
+  "GDPR", "HIPAA", "compliance audit", "privacy audit", or "are we GDPR compliant?".
+  Also trigger when the user is working on authentication, data storage, or user data
+  handling and asks whether it meets regulatory requirements.
 ---
 
 # Compliance Audit Skill
@@ -170,6 +164,10 @@ Work through the codebase systematically. For each area below, search for releva
 ## 4. Generate the report
 
 Structure your output as an actionable report. This is a to-do list for the developer — each finding should tell them exactly what's wrong and what to do about it.
+
+**Output location:** Write the report to `.claude/audits/compliance-audit-YYYY-MM-DD.md` if the
+`.claude/` directory exists, otherwise fall back to `compliance-audit.md` in the project root.
+If a previous audit exists for the same date, suffix with `-2`, `-3`, etc.
 
 ### Report structure
 

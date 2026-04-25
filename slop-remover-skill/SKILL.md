@@ -1,6 +1,6 @@
 ---
 name: slop-remover
-description: Deep-clean a codebase by dispatching 8 parallel specialist agents that research, assess, and fix code duplication, scattered type definitions, unused/dead code, circular dependencies, weak types (any/unknown), unnecessary defensive programming, deprecated/legacy patterns, and AI-generated slop. Use this skill whenever the user wants to clean up a codebase, reduce technical debt, remove junk code, or improve code hygiene — especially after heavy AI-assisted development, large refactors, or when onboarding to a messy project. Trigger on phrases like "slop", "clean up this codebase", "remove dead code", "code quality sweep", "technical debt", "declutter", "code hygiene", "remove junk", "tidy up", or any request to systematically improve code quality across a project.
+description: Deep-cleans a codebase by dispatching 8 parallel specialist agents that research, assess, and fix code duplication, scattered type definitions, dead code, circular dependencies, weak types (any/unknown), unnecessary defensive programming, legacy patterns, and AI-generated slop. Use when the user wants to clean up a codebase, reduce technical debt, or improve code hygiene — especially after heavy AI-assisted development or large refactors. Trigger on phrases like "slop", "clean up this codebase", "code quality sweep", "technical debt", or "code hygiene".
 ---
 
 # Slop Remover
@@ -73,9 +73,11 @@ Your mission:
 [Paste the full agent section from references/agent-prompts.md]
 
 Output requirements:
-- Write your findings to ASSESSMENT-N-[name].md at the project root
-  (e.g., ASSESSMENT-3-dead-code.md). Use a unique filename — other agents
-  are writing their own assessments concurrently.
+- Write your findings to `.claude/audits/slop-N-[name].md`
+  (e.g., `.claude/audits/slop-3-dead-code.md`) if the `.claude/` directory exists,
+  otherwise fall back to `slop-N-[name].md` at the project root. If a file with that
+  name already exists for today, suffix with `-2`, `-3`, etc. Use a unique filename —
+  other agents are writing their own assessments concurrently.
 - Categorize every finding by confidence: HIGH (implement), MEDIUM (implement if verifiable), LOW (flag only)
 - For each finding: file path, line number, what's wrong, why, and what to do
 ```
@@ -135,7 +137,7 @@ This is where you consolidate and present results. Don't just dump 8 branches on
 
 ### 1. Collect assessments
 
-Each agent returns its results. In worktree mode, each agent has a branch — read its `ASSESSMENT-N-[name].md` from the worktree. In direct mode, all assessments are in the project root as `ASSESSMENT-1-deduplicator.md`, `ASSESSMENT-3-dead-code.md`, etc. — collect them all. Note:
+Each agent returns its results. In worktree mode, each agent has a branch — read its `.claude/audits/slop-N-[name].md` from the worktree (falling back to the project root if `.claude/` doesn't exist there). In direct mode, all assessments are written to `.claude/audits/slop-1-deduplicator.md`, `.claude/audits/slop-3-dead-code.md`, etc. (or the project-root fallback) — collect them all. Note:
 - Total findings per agent (high/medium/low)
 - What was actually implemented vs. just flagged
 - Any warnings about risky changes

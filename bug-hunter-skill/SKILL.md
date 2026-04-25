@@ -2,15 +2,11 @@
 name: bug-hunter
 description: >
   Hunts production bugs in a running application by driving it as a real user would — via
-  computer-use (or a browser MCP for web apps). First maps every route, screen, button, and
-  intended behavior, then systematically exercises each one and reports deviations with
-  screenshots, reproduction steps, and severity. Use this skill whenever the user wants to
-  find bugs in a live app, test a production build, do a QA pass, check what's broken, run a
-  regression sweep, or says things like "hunt bugs", "find bugs in [app]", "test the app",
-  "what's broken in production", "QA [app]", "regression test", or "something's off with the
-  app". Also trigger on focused requests like "test the onboarding flow" or "check if the
-  settings page works". This skill drives a real running application — it does not read code.
-  For code-level audits, use production-gap-auditor instead; for investigating a specific
+  computer-use (or a browser MCP for web apps). Maps every route, screen, and button, then
+  systematically exercises each and reports deviations with screenshots, repro steps, and
+  severity. Use when the user wants to "hunt bugs", "find bugs in [app]", "test the app",
+  "QA [app]", or "test the onboarding flow". This skill drives a real running app — it does
+  not read code. For code-level audits, use production-gap-auditor instead; for a specific
   reported bug's root cause, use systematic-debugging.
 ---
 

@@ -1,17 +1,11 @@
 ---
 name: complexity-audit
 description: >
-  Audits and identifies unnecessary complexity that can be simplified across frontend, API,
-  backend, and database codebases. Use this skill whenever the user asks to simplify,
-  clean up complexity, reduce code, audit code quality, find over-engineering, identify
-  unnecessary abstractions, find bloated files, simplify architecture, simplify a screen
-  or service, do a complexity review, find files that are too large, identify
-  monolithic services, or anything similar — regardless of how the request is phrased.
-  Applies to React Native, Next.js, Supabase Edge Functions, database migrations,
-  and any other stack. Even vague requests like "is this over-engineered?", "does this
-  feel too complex?", or "can we simplify this?" should trigger this skill.
-  Works best on codebases that are actively developed — it finds complexity that
-  accumulates as features are added.
+  Audits and identifies unnecessary complexity across frontend, API, backend, and database
+  codebases, producing a prioritized report. Use when the user asks to "simplify",
+  "find over-engineering", "do a complexity review", "is this over-engineered?", or
+  "can we simplify this?". Works on any stack and is most useful on actively developed
+  codebases where complexity accumulates as features are added.
 ---
 
 # Complexity Audit
@@ -115,9 +109,16 @@ After gathering findings across all layers:
 
 ---
 
+## Output Location
+
+Write the report to `.claude/audits/complexity-audit-YYYY-MM-DD.md` if the `.claude/` directory
+exists, otherwise fall back to `complexity-audit.md` in the project root. If a previous audit
+exists for the same date, suffix with `-2`, `-3`, etc. (e.g.,
+`complexity-audit-2026-04-25-2.md`).
+
 ## Output Format
 
-ALWAYS produce a report in this structure:
+ALWAYS write the report (to the path above) using this structure:
 
 ```
 # Complexity Audit Report

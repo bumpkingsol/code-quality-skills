@@ -1,6 +1,6 @@
 ---
 name: dead-code-removal
-description: Find and remove dead, unused code from any codebase. Use this skill whenever the user asks to clean up unused code, find dead code, remove unused imports, identify unreachable code, clean up commented-out code, reduce code bloat, or prune a codebase. Also trigger when the user mentions "dead code", "unused code", "code cleanup", "remove unused", "unused functions", "unused files", "unused imports", or wants to reduce codebase size by removing things that aren't being used. Trigger even for scoped requests like "are there any unused functions in this file?" or "clean up this module."
+description: Finds and removes dead, unused code from any codebase. Use when the user asks to "clean up unused code", "find dead code", "remove unused imports", "unreachable code", or wants to prune a codebase. Also trigger on "dead code", "unused functions", or scoped requests like "are there unused functions in this file?".
 ---
 
 # Dead Code Removal

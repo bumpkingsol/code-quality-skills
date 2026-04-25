@@ -2,15 +2,11 @@
 name: whats-wrong
 description: >
   Deep-dives into a specific segment of an application (e.g., notifications, auth, payments,
-  search, onboarding) to find everything that's broken, incomplete, or below world-class
-  standards. Compares the implementation against best practices for that type of system and
-  produces a detailed diagnosis with concrete fixes. Use this skill whenever the user asks
-  "what's wrong with our [X]?", "why is [X] broken?", "diagnose [X]", "deep dive into [X]",
-  "audit [X] specifically", "our [X] sucks", "figure out what's going on with [X]",
-  "why does [X] feel off?", or any variation where they're pointing at a specific subsystem
-  and want to understand why it's not great. This is the focused, deep counterpart to the
-  production-gap-auditor — use that for codebase-wide sweeps, use this when the user has
-  already identified the area that needs attention.
+  search, onboarding) to find everything broken, incomplete, or below world-class standards,
+  then produces a detailed diagnosis with concrete fixes. Use when the user asks "what's wrong
+  with our [X]?", "diagnose [X]", "deep dive into [X]", or "our [X] sucks". This is the
+  focused, deep counterpart to production-gap-auditor — use that for codebase-wide sweeps,
+  use this when the user has already identified the area that needs attention.
 ---
 
 # What's Wrong
