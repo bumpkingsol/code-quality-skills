@@ -1,12 +1,6 @@
 ---
 name: whats-wrong
-description: >
-  Deep-dives into a specific segment of an application (e.g., notifications, auth, payments,
-  search, onboarding) to find everything broken, incomplete, or below world-class standards,
-  then produces a detailed diagnosis with concrete fixes. Use when the user asks "what's wrong
-  with our [X]?", "diagnose [X]", "deep dive into [X]", or "our [X] sucks". This is the
-  focused, deep counterpart to production-gap-auditor — use that for codebase-wide sweeps,
-  use this when the user has already identified the area that needs attention.
+description: Deep-diagnoses one subsystem such as auth, payments, notifications, search, or onboarding. Use for "what's wrong with X", diagnose X, deep dive into X, audit X specifically, or X feels broken. Focused counterpart to production-gap-auditor.
 ---
 
 # What's Wrong

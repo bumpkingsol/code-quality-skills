@@ -26,6 +26,12 @@ Destructive actions (delete, cancel subscription, real payments, real outbound c
 ### Claude Code
 
 ```bash
+claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/bug-hunter-skill/bug-hunter.skill
+```
+
+Or install the raw markdown file manually:
+
+```bash
 # Global (all projects)
 mkdir -p ~/.claude/skills/bug-hunter
 curl -o ~/.claude/skills/bug-hunter/SKILL.md \

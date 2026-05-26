@@ -14,15 +14,24 @@ const https = require('https');
 const REPO = 'bumpkingsol/code-quality-skills';
 const BRANCH = 'main';
 
-// skill name -> repo subdirectory
+// canonical skill name -> repo subdirectory
 const SKILLS = {
   'bug-hunter': 'bug-hunter-skill',
-  'cleanup': 'cleanup-skill',
+  'dead-code-removal': 'cleanup-skill',
   'complexity-audit': 'complexity-audit-skill',
   'compliance-audit': 'compliance-audit-skill',
   'production-gap-auditor': 'production-gap-auditor-skill',
   'slop-remover': 'slop-remover-skill',
   'whats-wrong': 'whats-wrong-skills',
+};
+
+const ALIASES = {
+  cleanup: 'dead-code-removal',
+};
+
+const EXTRA_FILES = {
+  'production-gap-auditor': ['references/patterns-by-language.md'],
+  'slop-remover': ['references/agent-prompts.md'],
 };
 
 // agent -> { user: absolute-ish path, project: relative path }
@@ -59,8 +68,15 @@ function fetchText(url, redirects = 5) {
   });
 }
 
+async function readRepoText(dir, file) {
+  const localPath = path.join(__dirname, '..', dir, file);
+  if (fs.existsSync(localPath)) return fs.readFileSync(localPath, 'utf8');
+  return fetchText(`https://raw.githubusercontent.com/${REPO}/${BRANCH}/${dir}/${file}`);
+}
+
 function usage() {
   const skills = Object.keys(SKILLS).join(', ');
+  const aliases = Object.entries(ALIASES).map(([from, to]) => `${from} -> ${to}`).join(', ');
   const agents = Object.keys(AGENTS).join(', ');
   console.log(`code-quality-skills — cross-agent skill installer
 
@@ -71,6 +87,7 @@ Usage:
   npx code-quality-skills agents
 
 Skills: ${skills}
+Aliases: ${aliases}
 Agents: ${agents}   (default: claude)
 Scopes: user, project                  (default: user)
 
@@ -82,6 +99,7 @@ Examples:
 }
 
 async function installOne(skillName, agent, scope) {
+  skillName = ALIASES[skillName] || skillName;
   const dir = SKILLS[skillName];
   if (!dir) throw new Error(`Unknown skill '${skillName}'. Run 'list' to see options.`);
   const agentPaths = AGENTS[agent];
@@ -92,13 +110,19 @@ async function installOne(skillName, agent, scope) {
   const targetDir = path.join(expand(base), skillName);
   fs.mkdirSync(targetDir, { recursive: true });
 
-  const rawBase = `https://raw.githubusercontent.com/${REPO}/${BRANCH}/${dir}`;
-  const skillMd = await fetchText(`${rawBase}/SKILL.md`);
+  const skillMd = await readRepoText(dir, 'SKILL.md');
   fs.writeFileSync(path.join(targetDir, 'SKILL.md'), skillMd);
+
+  for (const file of EXTRA_FILES[skillName] || []) {
+    const content = await readRepoText(dir, file);
+    const targetFile = path.join(targetDir, file);
+    fs.mkdirSync(path.dirname(targetFile), { recursive: true });
+    fs.writeFileSync(targetFile, content);
+  }
 
   // best-effort fetch README too
   try {
-    const readme = await fetchText(`${rawBase}/README.md`);
+    const readme = await readRepoText(dir, 'README.md');
     fs.writeFileSync(path.join(targetDir, 'README.md'), readme);
   } catch {
     // skills without READMEs are fine

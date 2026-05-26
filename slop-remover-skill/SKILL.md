@@ -1,6 +1,6 @@
 ---
 name: slop-remover
-description: Deep-cleans a codebase by dispatching 8 parallel specialist agents that research, assess, and fix code duplication, scattered type definitions, dead code, circular dependencies, weak types (any/unknown), unnecessary defensive programming, legacy patterns, and AI-generated slop. Use when the user wants to clean up a codebase, reduce technical debt, or improve code hygiene — especially after heavy AI-assisted development or large refactors. Trigger on phrases like "slop", "clean up this codebase", "code quality sweep", "technical debt", or "code hygiene".
+description: Deep-cleans codebases with specialist agents for duplication, scattered types, dead code, circular deps, weak types, defensive noise, legacy paths, and AI slop. Use for slop, cleanup, technical debt, code hygiene, large refactors, and AI-assisted code sweeps.
 ---
 
 # Slop Remover

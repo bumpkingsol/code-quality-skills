@@ -1,11 +1,6 @@
 ---
 name: complexity-audit
-description: >
-  Audits and identifies unnecessary complexity across frontend, API, backend, and database
-  codebases, producing a prioritized report. Use when the user asks to "simplify",
-  "find over-engineering", "do a complexity review", "is this over-engineered?", or
-  "can we simplify this?". Works on any stack and is most useful on actively developed
-  codebases where complexity accumulates as features are added.
+description: Audits unnecessary complexity across frontend, API, backend, and database layers. Use for simplify, over-engineering, complexity review, too-large files, duplication, schema drift, zombie config, and prioritized simplification reports.
 ---
 
 # Complexity Audit

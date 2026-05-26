@@ -1,11 +1,6 @@
 ---
 name: compliance-audit
-description: >
-  Audits an application's codebase for GDPR and HIPAA compliance issues, producing a
-  structured report organized by regulation and severity. Use when the user mentions
-  "GDPR", "HIPAA", "compliance audit", "privacy audit", or "are we GDPR compliant?".
-  Also trigger when the user is working on authentication, data storage, or user data
-  handling and asks whether it meets regulatory requirements.
+description: Audits code for GDPR, HIPAA, privacy, PHI/PII, consent, data retention, erasure, portability, breach, and user-data handling gaps. Use for compliance audits, privacy reviews, and "are we GDPR/HIPAA compliant?".
 ---
 
 # Compliance Audit Skill

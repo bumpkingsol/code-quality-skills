@@ -6,13 +6,13 @@ A collection of Claude Code skills for code quality and audits — diagnosing is
 
 | Skill | Description |
 |-------|-------------|
-| `slop-remover-skill` | 8-agent parallel deep-clean — deduplication, dead code, weak types, circular deps, error handling, legacy code, AI slop |
-| `production-gap-auditor-skill` | Production gap auditing against world-class best practices |
-| `compliance-audit-skill` | GDPR and HIPAA compliance audit with structured reports |
-| `cleanup-skill` | Automated code cleanup |
-| `whats-wrong-skills` | Deep-dive diagnosis of application subsystems |
-| `bug-hunter-skill` | Drives a running app as a real user to find production bugs — maps flows, hunts adversarially, reports with screenshots |
-| `complexity-audit-skill` | Audits codebase for unnecessary complexity across frontend, API, backend, and database layers |
+| `slop-remover` | Deep code-quality cleanup for duplication, types, dead code, circular deps, legacy paths, and AI slop |
+| `production-gap-auditor` | Production-readiness audit for gaps tests miss: silent failures, broken flows, data integrity, auth, UX, and integration issues |
+| `compliance-audit` | GDPR/HIPAA/privacy audit for consent, PHI/PII, retention, erasure, portability, breach, and user-data handling |
+| `dead-code-removal` | Conservative dead-code removal for unused imports, functions, files, unreachable code, and pruning sweeps |
+| `whats-wrong` | Focused subsystem diagnosis for auth, payments, notifications, search, onboarding, and similar product areas |
+| `bug-hunter` | Runtime QA that drives a live app with computer-use or browser automation and reports bugs with evidence |
+| `complexity-audit` | Complexity audit across frontend, API, backend, and database layers with prioritized simplification recommendations |
 
 ## Installation
 
@@ -49,9 +49,13 @@ npx code-quality-skills install-all --agent claude
 For Claude Code specifically, you can also use the bundled `.skill` packages:
 
 ```bash
-claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/slop-remover-skill/slop-remover.skill
 claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/bug-hunter-skill/bug-hunter.skill
+claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/cleanup-skill/dead-code-removal.skill
 claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/complexity-audit-skill/complexity-audit.skill
+claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/compliance-audit-skill/compliance-audit.skill
+claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/production-gap-auditor-skill/production-gap-auditor.skill
+claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/slop-remover-skill/slop-remover.skill
+claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/whats-wrong-skills/whats-wrong.skill
 ```
 
 ### Manual install

@@ -1,6 +1,6 @@
 ---
 name: dead-code-removal
-description: Finds and removes dead, unused code from any codebase. Use when the user asks to "clean up unused code", "find dead code", "remove unused imports", "unreachable code", or wants to prune a codebase. Also trigger on "dead code", "unused functions", or scoped requests like "are there unused functions in this file?".
+description: Finds and safely removes dead code. Use for unused code, dead code, unused imports/functions/files, unreachable code, code pruning, cleanup sweeps, and scoped checks such as whether a file has unused functions.
 ---
 
 # Dead Code Removal

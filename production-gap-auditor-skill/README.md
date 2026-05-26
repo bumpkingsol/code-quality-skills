@@ -24,12 +24,24 @@ Generates a structured `production-gap-audit.md` report with severity-classified
 # Global (all projects)
 mkdir -p ~/.claude/skills/production-gap-auditor
 curl -o ~/.claude/skills/production-gap-auditor/SKILL.md \
-  https://raw.githubusercontent.com/bumpkingsol/production-gap-auditor-skill/main/SKILL.md
+  https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/production-gap-auditor-skill/SKILL.md
+mkdir -p ~/.claude/skills/production-gap-auditor/references
+curl -o ~/.claude/skills/production-gap-auditor/references/patterns-by-language.md \
+  https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/production-gap-auditor-skill/references/patterns-by-language.md
 
 # Project-only
 mkdir -p .claude/skills/production-gap-auditor
 curl -o .claude/skills/production-gap-auditor/SKILL.md \
-  https://raw.githubusercontent.com/bumpkingsol/production-gap-auditor-skill/main/SKILL.md
+  https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/production-gap-auditor-skill/SKILL.md
+mkdir -p .claude/skills/production-gap-auditor/references
+curl -o .claude/skills/production-gap-auditor/references/patterns-by-language.md \
+  https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/production-gap-auditor-skill/references/patterns-by-language.md
+```
+
+Or install the bundled Claude Code package:
+
+```bash
+claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/production-gap-auditor-skill/production-gap-auditor.skill
 ```
 
 ### Codex / OpenAI Agents
@@ -37,7 +49,7 @@ curl -o .claude/skills/production-gap-auditor/SKILL.md \
 Add the skill content to your agent's system instructions, or reference the raw file:
 
 ```
-https://raw.githubusercontent.com/bumpkingsol/production-gap-auditor-skill/main/SKILL.md
+https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/production-gap-auditor-skill/SKILL.md
 ```
 
 For Codex CLI, place the file in your project's agents config or include it as a custom instruction file.
@@ -47,7 +59,10 @@ For Codex CLI, place the file in your project's agents config or include it as a
 ```bash
 mkdir -p .gemini/skills/production-gap-auditor
 curl -o .gemini/skills/production-gap-auditor/SKILL.md \
-  https://raw.githubusercontent.com/bumpkingsol/production-gap-auditor-skill/main/SKILL.md
+  https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/production-gap-auditor-skill/SKILL.md
+mkdir -p .gemini/skills/production-gap-auditor/references
+curl -o .gemini/skills/production-gap-auditor/references/patterns-by-language.md \
+  https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/production-gap-auditor-skill/references/patterns-by-language.md
 ```
 
 ### Any LLM agent

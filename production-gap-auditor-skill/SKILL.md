@@ -1,12 +1,6 @@
 ---
 name: production-gap-auditor
-description: >
-  Performs deep production-readiness audits of codebases to find deficiencies unit tests
-  cannot catch — the bugs, gaps, and silent failures only real users discover. Use when the
-  user asks to "audit a codebase", "find production gaps", "review production readiness",
-  "what's broken that we're not seeing?", or "tests pass but users complain". Supports a
-  quick mode — trigger with "quick audit", "quick sweep", or "fast audit" to run only the
-  broad sweep and surface the top 5 findings.
+description: Audits production readiness for code gaps tests miss: silent failures, broken promises, integration gaps, incomplete flows, data integrity, UX dead ends, auth gaps, and performance traps. Use for codebase audits, production gaps, tests pass but users complain, and quick audit/sweep.
 ---
 
 # Production Gap Auditor
