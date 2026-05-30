@@ -20,29 +20,32 @@ These skills are plain `SKILL.md` files with YAML frontmatter — they work with
 
 ### Install via npx (any agent)
 
+The installer runs straight from GitHub — no npm package required.
+
 ```bash
 # List available skills
-npx code-quality-skills list
+npx github:bumpkingsol/code-quality-skills list
 
 # Install one skill (defaults to Claude, user scope)
-npx code-quality-skills install bug-hunter
+npx github:bumpkingsol/code-quality-skills install bug-hunter
 
 # Install to a different agent
-npx code-quality-skills install slop-remover --agent gemini
-npx code-quality-skills install production-gap-auditor --agent cursor
+npx github:bumpkingsol/code-quality-skills install slop-remover --agent gemini
+npx github:bumpkingsol/code-quality-skills install production-gap-auditor --agent cursor
 
 # Install to project scope instead of user scope
-npx code-quality-skills install complexity-audit --scope project
+npx github:bumpkingsol/code-quality-skills install complexity-audit --scope project
 
 # Install everything
-npx code-quality-skills install-all --agent claude
+npx github:bumpkingsol/code-quality-skills install-all --agent claude
 ```
 
 **Supported agents:** `claude`, `gemini`, `codex`, `cursor`, `copilot`
 **Scopes:** `user` (default, global) or `project` (local `.{agent}/skills/`)
 
-> Prefer not to install from npm? The same CLI runs directly from GitHub:
-> `npx github:bumpkingsol/code-quality-skills install <skill>`
+> Tip: alias it for convenience —
+> `alias cqs='npx github:bumpkingsol/code-quality-skills'`
+> then run `cqs install bug-hunter --agent gemini`.
 
 ### Install via Claude Code CLI
 
