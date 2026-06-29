@@ -18,6 +18,7 @@ const BRANCH = 'main';
 const SKILLS = {
   'bug-hunter': 'bug-hunter-skill',
   'dead-code-removal': 'cleanup-skill',
+  'feature-gap-auditor': 'feature-gap-auditor-skill',
   'complexity-audit': 'complexity-audit-skill',
   'compliance-audit': 'compliance-audit-skill',
   'production-gap-auditor': 'production-gap-auditor-skill',

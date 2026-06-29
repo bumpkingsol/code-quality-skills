@@ -8,6 +8,7 @@ A collection of Claude Code skills for code quality and audits — diagnosing is
 |-------|-------------|
 | `slop-remover` | Deep code-quality cleanup for duplication, types, dead code, circular deps, legacy paths, and AI slop |
 | `production-gap-auditor` | Production-readiness audit for gaps tests miss: silent failures, broken flows, data integrity, auth, UX, and integration issues |
+| `feature-gap-auditor` | Focused audit of one feature, workflow, screen, or user promise to find claimed-vs-actual behavior gaps |
 | `compliance-audit` | GDPR/HIPAA/privacy audit for consent, PHI/PII, retention, erasure, portability, breach, and user-data handling |
 | `dead-code-removal` | Conservative dead-code removal for unused imports, functions, files, unreachable code, and pruning sweeps |
 | `whats-wrong` | Focused subsystem diagnosis for auth, payments, notifications, search, onboarding, and similar product areas |
@@ -53,6 +54,7 @@ claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-
 claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/cleanup-skill/dead-code-removal.skill
 claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/complexity-audit-skill/complexity-audit.skill
 claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/compliance-audit-skill/compliance-audit.skill
+claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/feature-gap-auditor-skill/feature-gap-auditor.skill
 claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/production-gap-auditor-skill/production-gap-auditor.skill
 claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/slop-remover-skill/slop-remover.skill
 claude install-skill https://raw.githubusercontent.com/bumpkingsol/code-quality-skills/main/whats-wrong-skills/whats-wrong.skill
